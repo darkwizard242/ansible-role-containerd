@@ -1,0 +1,30 @@
+---
+galaxy_info:
+  role_name: containerd
+  author: darkwizard242
+  description: Installs/Uninstalls 'containerd', an industry-standard container runtime.
+  company: none
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+    - name: EL
+      versions:
+        - 7
+        - 8
+
+  galaxy_tags:
+    - containerd
+    - containerruntime
+    - linux
+    - system
+
+dependencies: []

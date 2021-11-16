@@ -1,0 +1,13 @@
+---
+# tasks file for containerd | Debian/Ubuntu Family
+
+- name: "Debian/Ubuntu Family | Downloading/Extracting archive for {{ containerd_app }} {{ containerd_version }} to {{ containerd_bin_path }}"
+  unarchive:
+    src: "{{ containerd_dl_url }}"
+    dest: "{{ containerd_bin_path }}"
+    mode: "{{ containerd_files_mode }}"
+    owner: "{{ containerd_files_owner }}"
+    group: "{{ containerd_files_group }}"
+    remote_src: yes
+    extra_opts:
+      - --strip-components=1
