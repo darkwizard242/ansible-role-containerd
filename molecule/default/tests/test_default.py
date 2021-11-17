@@ -9,6 +9,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 BINARIES_DIR = '/usr/local/bin/'
 BINARIES = ['containerd', 'containerd-shim', 'containerd-shim-runc-v1',
             'containerd-shim-runc-v2', 'ctr']
+SYSTEMD_FILE = '/etc/systemd/system/containerd.service'
 
 
 def test_containerd_binaries_exists(host):
@@ -25,3 +26,17 @@ def test_containerd_binaries_file(host):
         Tests if containerd binaries are a file type.
         """
         assert host.file(BINARIES_DIR + BINARY).is_file
+
+
+def test_containerd_systemd_exists(host):
+    """
+    Tests if containerd systemd file exists.
+    """
+    assert host.file(SYSTEMD_FILE).exists
+
+
+def test_containerd_systemd_file(host):
+    """
+    Tests if containerd systemd file is a file type.
+    """
+    assert host.file(SYSTEMD_FILE).is_file

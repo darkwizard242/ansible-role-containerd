@@ -1,0 +1,17 @@
+---
+# handlers file for containerd
+# These handlers will only run when the virtualization type is NOT docker itself as docker doesn't support/handle systemd very well!
+
+- name: "Enable {{ containerd_app }} systemd service"
+  service:
+    name: "{{ containerd_app }}"
+    enabled: "{{ containerd_systemd_service_enable_state }}"
+  when: containerd_systemd_service_setup
+  # when: ansible_virtualization_type != "docker"
+
+- name: "Set {{ containerd_app }} systemd service state"
+  service:
+    name: "{{ containerd_app }}"
+    state: "{{ containerd_systemd_service_state }}"
+  when: containerd_systemd_service_setup
+  # when: ansible_virtualization_type != "docker"
