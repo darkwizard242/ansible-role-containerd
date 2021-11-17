@@ -15,13 +15,13 @@
 # limitations under the License.
 
 [Unit]
-Description=containerd container runtime
+Description={{ containerd_app }} container runtime
 Documentation=https://containerd.io
 After=network.target local-fs.target
 
 [Service]
 ExecStartPre=-/sbin/modprobe overlay
-ExecStart=/usr/local/bin/containerd
+ExecStart={{ containerd_bin_path }}/{{ containerd_app }}
 
 Type=notify
 Delegate=yes
