@@ -1,5 +1,6 @@
 ---
 - name: Converge
   hosts: all
+  gather_facts: yes
   roles:
     - role: darkwizard242.containerd
