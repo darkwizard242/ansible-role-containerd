@@ -11,3 +11,11 @@
     remote_src: yes
     extra_opts:
       - --strip-components=1
+
+- name: "Debian/Ubuntu Family | Provision systemd service for {{ containerd_app }} as {{ containerd_systemd_template_out_dir }}/{{ containerd_systemd_template_out_file }}"
+  template:
+    src: "{{ containerd_systemd_template_in_file }}"
+    dest: "{{ containerd_systemd_template_out_dir }}/{{ containerd_systemd_template_out_file }}"
+    mode: '0644'
+    owner: root
+    group: root
