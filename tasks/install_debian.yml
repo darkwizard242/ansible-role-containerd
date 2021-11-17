@@ -19,3 +19,6 @@
     mode: '0644'
     owner: root
     group: root
+  notify:
+    - "Enable {{ containerd_app }} systemd service"
+    - "Set {{ containerd_app }} systemd service state"
