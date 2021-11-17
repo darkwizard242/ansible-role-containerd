@@ -10,3 +10,8 @@ containerd_bin_path: /usr/local/bin
 containerd_files_mode: '0755'
 containerd_files_owner: root
 containerd_files_group: root
+containerd_systemd_template_in_file: containerd.service.j2
+containerd_systemd_template_out_dir: /etc/systemd/system
+containerd_systemd_template_out_file: containerd.service
+containerd_systemd_service_enable_state: yes
+containerd_systemd_service_state: started
