@@ -24,6 +24,7 @@ containerd_bin_path: /usr/local/bin
 containerd_files_mode: '0755'
 containerd_files_owner: root
 containerd_files_group: root
+containerd_systemd_service_setup: true
 containerd_systemd_template_in_file: containerd.service.j2
 containerd_systemd_template_out_dir: /etc/systemd/system
 containerd_systemd_template_out_file: containerd.service
@@ -34,7 +35,7 @@ containerd_systemd_service_state: started
 ### Variables table:
 
 Variable                                | Description
---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------
 containerd_app                          | Defines the app to install i.e. **containerd**
 containerd_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.5.7**
 containerd_os                           | Defines OS type. Defaults to: **linux**
@@ -44,6 +45,7 @@ containerd_bin_path                     | Defined to dynamically set the appropr
 containerd_files_mode                   | Mode for the binaries file of containerd.
 containerd_files_owner                  | Owner for the binaries file of containerd.
 containerd_files_group                  | Group for the binaries file of containerd.
+containerd_systemd_service_setup        | Boolean for whether systemd service setup (systemd service generation, systemd boot start and state change) for containerd needs to be performed.
 containerd_systemd_template_in_file     | Template (Jinja) file to use as source for containerd's systemd service.
 containerd_systemd_template_out_dir     | Destination directory to store the generated Jinja template for containerd's systemd service.
 containerd_systemd_template_out_file    | Destination filename for containerd's systemd service.
