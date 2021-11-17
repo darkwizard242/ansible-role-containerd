@@ -1,6 +1,7 @@
 ---
 - name: Converge
   hosts: all
-  gather_facts: yes
   roles:
     - role: darkwizard242.containerd
+  vars:
+    containerd_systemd_service_setup: false
