@@ -2,7 +2,7 @@
 # tasks file for containerd | Debian/Ubuntu Family
 
 - name: "Debian/Ubuntu Family | Downloading/Extracting archive for {{ containerd_app }} {{ containerd_version }} to {{ containerd_bin_path }}"
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ containerd_dl_url }}"
     dest: "{{ containerd_bin_path }}"
     mode: "{{ containerd_files_mode }}"
@@ -13,7 +13,7 @@
       - --strip-components=1
 
 - name: "Debian/Ubuntu Family | Provision systemd service for {{ containerd_app }} as {{ containerd_systemd_template_out_dir }}/{{ containerd_systemd_template_out_file }}"
-  template:
+  ansible.builtin.template:
     src: "{{ containerd_systemd_template_in_file }}"
     dest: "{{ containerd_systemd_template_out_dir }}/{{ containerd_systemd_template_out_file }}"
     mode: '0644'
