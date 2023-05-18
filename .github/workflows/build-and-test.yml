@@ -16,7 +16,7 @@ on:
     - cron: '0 12 * * *'
 
 env:
-  CUSTOM_DIR: 'darkwizard242.cni'
+  CUSTOM_DIR: 'darkwizard242.containerd'
 
 jobs:
 
