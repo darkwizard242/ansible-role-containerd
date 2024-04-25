@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 containerd_app: containerd
-containerd_version: 1.7.15
+containerd_version: 1.7.16
 containerd_os: linux
 containerd_arch: amd64
 containerd_dl_url: "https://github.com/{{ containerd_app }}/{{ containerd_app }}/releases/download/v{{ containerd_version }}/{{ containerd_app }}-{{ containerd_version }}-{{ containerd_os }}-{{ containerd_arch }}.tar.gz"
@@ -37,7 +37,7 @@ containerd_systemd_service_state: started
 Variable                                | Description
 --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------
 containerd_app                          | Defines the app to install i.e. **containerd**
-containerd_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.7.15**
+containerd_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.7.16**
 containerd_os                           | Defines OS type. Defaults to: **linux**
 containerd_arch                         | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 containerd_dl_url                       | Defines URL to download the containerd binaries archive from.
