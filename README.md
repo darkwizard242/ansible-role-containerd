@@ -17,9 +17,17 @@ Available variables are listed below (located in `defaults/main.yml`):
 ```yaml
 containerd_app: containerd
 containerd_version: 1.7.19
-containerd_os: linux
-containerd_arch: amd64
-containerd_dl_url: "https://github.com/{{ containerd_app }}/{{ containerd_app }}/releases/download/v{{ containerd_version }}/{{ containerd_app }}-{{ containerd_version }}-{{ containerd_os }}-{{ containerd_arch }}.tar.gz"
+containerd_os: "{{ ansible_system | lower }}"
+containerd_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+containerd_dl_url: "https://github.com/{{ containerd_app }}/{{ containerd_app }}/releases/download/v{{ containerd_version }}/{{ containerd_app }}-{{ containerd_version }}-{{ containerd_os }}-{{ containerd_architecture_map[ansible_architecture] }}.tar.gz"
 containerd_bin_path: /usr/local/bin
 containerd_files_mode: '0755'
 containerd_files_owner: root
@@ -38,8 +46,8 @@ Variable                                | Description
 --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------
 containerd_app                          | Defines the app to install i.e. **containerd**
 containerd_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.7.19**
-containerd_os                           | Defines OS type. Defaults to: **linux**
-containerd_arch                         | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
+containerd_os                           | Defines OS type.
+containerd_architecture_map             | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
 containerd_dl_url                       | Defines URL to download the containerd binaries archive from.
 containerd_bin_path                     | Defined to dynamically set the appropriate path to store containerd binaries into.
 containerd_files_mode                   | Mode for the binaries file of containerd.
