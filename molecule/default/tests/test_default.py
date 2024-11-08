@@ -7,8 +7,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 BINARIES_DIR = '/usr/local/bin/'
-BINARIES = ['containerd', 'containerd-shim', 'containerd-shim-runc-v1',
-            'containerd-shim-runc-v2', 'ctr']
+BINARIES = ['containerd', 'containerd-shim-runc-v2',
+            'containerd-stress', 'ctr']
 SYSTEMD_FILE = '/etc/systemd/system/containerd.service'
 
 
