@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 containerd_app: containerd
-containerd_version: 2.1.3
+containerd_version: 2.1.4
 containerd_os: "{{ ansible_system | lower }}"
 containerd_architecture_map:
   amd64: amd64
@@ -45,7 +45,7 @@ containerd_systemd_service_state: started
 Variable                                | Description
 --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------
 containerd_app                          | Defines the app to install i.e. **containerd**
-containerd_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **2.1.3**
+containerd_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **2.1.4**
 containerd_os                           | Defines OS type.
 containerd_architecture_map             | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
 containerd_dl_url                       | Defines URL to download the containerd binaries archive from.
